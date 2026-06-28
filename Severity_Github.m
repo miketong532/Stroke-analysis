@@ -2,7 +2,7 @@ clear; clc; close all;
 
 % 1. Load slice
 [fNames pName] = uigetfile('.png', 'choose a png file', 'MultiSelect', 'on');
-S = struct();
+slicenames = cell(1, length(fNames));
 for i = 1:length(fNames)
     slicename = fNames{i};
     slicename = slicename(1:end-4);
@@ -10,7 +10,12 @@ for i = 1:length(fNames)
     if spaceIn
         slicename = slicename(1:spaceIn-1);
     end
-    S(i).fileName = slicename;
+    slicenames{i} = slicename;
+end
+[uniqueNames, idx] = unique(slicenames, 'stable');
+S = struct();
+for i = 1:length(uniqueNames)
+    S(i).fileName = uniqueNames{i};
 end
 
 % 2. Compute threshold
