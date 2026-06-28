@@ -43,6 +43,11 @@ fprintf('Mean low threshold:  %.4f ± %.4f\n', results.mean_TH_low, results.std_
 fprintf('Mean high threshold: %.4f ± %.4f\n', results.mean_TH_high, results.std_TH_high);
 fprintf('IP weight: %.4f\n', results.IP_weight);
 
+% Mean threshold obtained from initial cohort (n = 13)
+results.mean_TH_low = 120.1943; 
+results.mean_TH_high = 163.3319;
+results.IP_weight = 0.5478;
+
 % 5. Severity
 Severity = export_Severity_results(S, results.mean_TH_low, results.mean_TH_high, results.IP_weight);
 
